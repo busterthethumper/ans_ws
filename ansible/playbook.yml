@@ -10,6 +10,9 @@
           - yaml
           - yml
 
-    - name: Deploy CloudWatchAgent Linux
+    - name: Distribution
+      debug: msg="{{ ansible_distribution }}"
+
+    - name: Deploy CloudWatchAgent Linux/Amazon
       include_tasks: linux-cloud-watch-setup.yml
-      when: ansible_distribution == "Linux"
+      when: ansible_distribution == "Amazon"
