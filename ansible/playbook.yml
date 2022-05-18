@@ -14,5 +14,5 @@
       debug: msg="{{ ansible_distribution }}"
 
     - name: Deploy CloudWatchAgent Linux/Amazon
-      include_tasks: linux-cloud-watch-setup.yml
+      include_tasks: tasks/linux-cloud-watch-setup.yml
       when: ansible_distribution == "Amazon"
