@@ -10,5 +10,6 @@
           - yaml
           - yml
 
-    - include: linux-cloud-watch-setup.yml
-    when: ansible_distribution == "Linux"
+    - name: Deploy CloudWatchAgent Linux
+      include_tasks: linux-cloud-watch-setup.yml
+      when: ansible_distribution == "Linux"
