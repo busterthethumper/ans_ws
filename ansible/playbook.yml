@@ -16,3 +16,7 @@
     - name: Deploy CloudWatchAgent Linux/Amazon
       include_tasks: tasks/linux-cloud-watch-setup.yml
       when: ansible_distribution == "Amazon"
+
+    - name: Deploy CloudWatchAgent Windows
+      include_tasks: tasks/windows-cloud-watch-setup.yml
+      when: ansible_distribution == "Windows"
