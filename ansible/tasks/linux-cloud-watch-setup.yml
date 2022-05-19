@@ -1,7 +1,7 @@
 ---
 - name: "Install CloudWatch Agent Linux"
   shell: |
-    get_url https://s3.amazonaws.com/amazoncloudwatch-agent/linux/amd64/latest/AmazonCloudWatchAgent.zip
+    wget https://s3.amazonaws.com/amazoncloudwatch-agent/linux/amd64/latest/AmazonCloudWatchAgent.zip
     unzip AmazonCloudWatchAgent.zip
     sudo ./install.sh
 
