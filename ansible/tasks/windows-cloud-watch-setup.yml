@@ -17,7 +17,7 @@
         "logfile": "c:\\ProgramData\\Amazon\\AmazonCloudWatchAgent\\Logs\\amazon-cloudwatch-agent.log"
       },
       "metrics": {
-        "namespace": "MyCustomNamespace",
+        "namespace": "Windows Operating Systems",
         "metrics_collected": {
           "Processor": {
             "measurement": [
@@ -139,7 +139,7 @@
       }
     }'
        
-- name: "Apply CloudWatch Agent Configuration"
+- name: "Launch Amazon Cloud-Watch-Agent With amazon-cloudwatch-agent.json"
   ansible.windows.win_shell: |
     & $env:ProgramFiles\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1 -a fetch-config -m ec2 -c file:$env:ProgramFiles\Amazon\AmazonCloudWatchAgent\config.json -s
     
