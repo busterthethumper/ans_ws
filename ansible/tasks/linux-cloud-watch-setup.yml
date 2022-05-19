@@ -4,6 +4,9 @@
     get_url https://s3.amazonaws.com/amazoncloudwatch-agent/linux/amd64/latest/AmazonCloudWatchAgent.zip
     unzip AmazonCloudWatchAgent.zip
     sudo ./install.sh
+
+- name: "Create CloudWatch Agent Configuration"
+  shell: |
     echo '{
       "agent": {
         "metrics_collection_interval": 10,
@@ -134,5 +137,8 @@
         "force_flush_interval" : 15
       }
     }' > /tmp/ans_ws/amazon-cloudwatch-agent.json
+    
+- name: "Launch Amazon Cloud-Watch-Agent With amazon-cloudwatch-agent.json"
+  shell: |
     sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/tmp/ans_ws/amazon-cloudwatch-agent.json
     
